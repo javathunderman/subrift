@@ -2,7 +2,6 @@ import discord
 import json
 import api
 import asyncio
-import time
 import random
 import typing
 from discord.ext import commands

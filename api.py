@@ -1,9 +1,6 @@
 import json
 import requests
-import uuid
 import xml.etree.ElementTree as ET
-
-from authentication import generateHash, generateSalt
 
 #Retrieve data from json file
 with open("subrift.json", "r") as read_file:
@@ -14,8 +11,6 @@ password = data["USER"]["SUBSONICPASSWORD"]
 url = data["URL"]
 
 #Generate Salt, Client, & Hash
-salt = generateSalt()
-token = generateHash(password, salt)
 client = 'Subrift'
 
 #Namespaces
@@ -50,8 +45,7 @@ def pingServer():
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client
     }
@@ -73,8 +67,7 @@ def getLicense():
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client
     }
@@ -94,8 +87,7 @@ def getMusicFolders():
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client
     }
@@ -123,8 +115,7 @@ def getIndexes():
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client
     }
@@ -140,8 +131,7 @@ def getMusicDirectory(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -158,8 +148,7 @@ def search(query):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "query": query
@@ -176,8 +165,7 @@ def streamSong(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -194,8 +182,7 @@ def downloadSong(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -279,8 +266,7 @@ def getCoverArt(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -331,8 +317,7 @@ def getAlbumData(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -379,8 +364,7 @@ def getPlaylistData(id):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client,
         "id": id
@@ -428,8 +412,7 @@ def getPlaylist(query):
     #Parameters
     PARAMS = {
         "u" : username,
-        "t" : token,
-        "s" : salt,
+        "p" : password,
         "v" : '1.15.0',
         "c" : client
     }
